@@ -59,6 +59,7 @@ export default function OriginalFeatures() {
             const progress = self.progress;
             gsap.to(panel, {
               scale: 1 - progress * 0.1,
+              transformOrigin: 'center',
               duration: 0.1,
             });
           },
@@ -71,73 +72,95 @@ export default function OriginalFeatures() {
     };
   }, []);
 
+  useEffect(() => {
+    // リサイズハンドラー関数
+    const handleResize = () => {
+      ScrollTrigger.refresh();
+    };
+    
+    // イベントリスナーを追加
+    window.addEventListener('resize', handleResize);
+    
+    // クリーンアップ関数
+    return () => {
+      window.removeEventListener('resize', handleResize);
+    };
+  }, []);
+
   return (
-    <section ref={sectionRef} id='original-features' className='relative mt-25 pt-25 px-20'>
-      <div className='js-features-container max-w-320 mx-auto'>
-        <div 
-          ref={el => {
-            if (el) panelsRef.current[0] = el;
-          }}
-          className='js-features-panel relative px-20 py-17.5 h-screen grid place-items-center overflow-hidden'
-        >
-          <div className='bg-black-base rounded-2xl grid place-items-center w-full h-full max-h-152.75 overflow-hidden'>
-            <h2 className='text-64/[1.4] font-semibold text-white text-center'>
-              パブテクAI行政だからできる
-              <br />
-              <span className='bg-gradient-to-r from-[#3A78F1] via-[#47D9E2] to-[#64ED80] inline-block text-transparent bg-clip-text'>
-                独自機能
-              </span>
-              の紹介
-            </h2>
+    <section ref={sectionRef} id='original-features' className='relative mt-25 pt-25'>
+      <div className="relative px-20">
+        <div className="absolute inset-0">
+          <div className="sticky top-0 w-full h-screen grid place-items-center overflow-hidden">
+            <div className="w-[131.5%] h-full max-h-114.5 bg-[#88B0FD] rounded-[50%] blur-[99px]"></div>
           </div>
         </div>
-        {orignialFeatures.map((feature, index) => (
-          <div
-            key={feature.title}
+        <div className='js-features-container max-w-320 mx-auto'>
+          <div 
             ref={el => {
-              if (el) panelsRef.current[index + 1] = el;
+              if (el) panelsRef.current[0] = el;
             }}
-            className='js-features-panel group relative px-20 py-17.5 h-screen grid place-items-center overflow-hidden'
+            className='js-features-panel relative px-20 py-17.5 h-screen grid place-items-center overflow-hidden'
           >
-            <div className='bg-black-base rounded-2xl grid place-items-center w-full h-full max-h-152.75 px-8'>
-              <div className='flex gap-x-[1.8125rem] w-full group-odd:flex-row-reverse'>
-                <div className='relative w-[calc(609/1052*100%)]'>
-                  <Image
-                    src={`/images/new-feature-${(index + 1)
-                      .toString()
-                      .padStart(2, '0')}.png`}
-                    alt={feature.title}
-                    width={609}
-                    height={371}
-                  />
-                </div>
-                <div className='relative flex flex-col justify-between flex-1'>
-                  <div className='relative'>
-                    <div className='text-12/[1.7] tracking-[.02em] capitalize font-semibold'>
-                      <span className='bg-gradient-to-r from-[#3A78F1] via-[#47D9E2] to-[#64ED80] inline-block text-transparent bg-clip-text'>
-                        new feature
-                      </span>
-                    </div>
-                    <h3 className='mt-4 text-40/[1.4] font-semibold text-white'>
-                      {feature.title}
-                    </h3>
-                    <h4
-                      className='text-14/[1.4] leading-[1.7] mt-8 text-white font-semibold'
-                      dangerouslySetInnerHTML={{ __html: feature.lead }}
+            <div className='bg-black-base rounded-2xl grid place-items-center w-full h-full max-h-152.75 overflow-hidden'>
+              <h2 className='text-64/[1.4] font-semibold text-white text-center'>
+                パブテクAI行政だからできる
+                <br />
+                <span className='bg-gradient-to-r from-[#3A78F1] via-[#47D9E2] to-[#64ED80] inline-block text-transparent bg-clip-text'>
+                  独自機能
+                </span>
+                の紹介
+              </h2>
+            </div>
+          </div>
+          {orignialFeatures.map((feature, index) => (
+            <div
+              key={feature.title}
+              ref={el => {
+                if (el) panelsRef.current[index + 1] = el;
+              }}
+              className='js-features-panel group relative px-20 py-17.5 h-screen grid place-items-center overflow-hidden'
+            >
+              <div className='bg-black-base rounded-2xl grid place-items-center w-full h-full max-h-152.75 px-8'>
+                <div className='flex gap-x-[1.8125rem] w-full group-odd:flex-row-reverse'>
+                  <div className='relative w-[calc(609/1052*100%)]'>
+                    <Image
+                      src={`/images/new-feature-${(index + 1)
+                        .toString()
+                        .padStart(2, '0')}.png`}
+                      alt={feature.title}
+                      width={609}
+                      height={371}
                     />
-                    <p className='text-12/[1.7] leading-[1.7] mt-2 text-[#B0B0B0]'>
-                      {feature.description}
-                    </p>
                   </div>
-                  <div className='relative text-20/[1.4] text-pubtech-blue pl-7'>
-                    <span className='absolute top-1/2 -translate-y-1/2 left-0 w-5 h-0.25 bg-pubtech-blue'></span>
-                    {(index + 1).toString().padStart(2, '0')}
+                  <div className='relative flex flex-col justify-between flex-1'>
+                    <div className='relative'>
+                      <div className='text-12/[1.7] tracking-[.02em] capitalize font-semibold'>
+                        <span className='bg-gradient-to-r from-[#3A78F1] via-[#47D9E2] to-[#64ED80] inline-block text-transparent bg-clip-text'>
+                          new feature
+                        </span>
+                      </div>
+                      <h3 className='mt-4 text-40/[1.4] font-semibold text-white'>
+                        {feature.title}
+                      </h3>
+                      <h4
+                        className='text-14/[1.4] leading-[1.7] mt-8 text-white font-semibold'
+                        dangerouslySetInnerHTML={{ __html: feature.lead }}
+                      />
+                      <p className='text-12/[1.7] leading-[1.7] mt-2 text-[#B0B0B0]'>
+                        {feature.description}
+                      </p>
+                    </div>
+                    <div className='relative text-20/[1.4] text-pubtech-blue pl-7'>
+                      <span className='absolute top-1/2 -translate-y-1/2 left-0 w-5 h-0.25 bg-pubtech-blue'></span>
+                      {(index + 1).toString().padStart(2, '0')}
+                    </div>
                   </div>
                 </div>
               </div>
             </div>
-          </div>
-        ))}
+          ))}
+        </div>
       </div>
     </section>
   );
