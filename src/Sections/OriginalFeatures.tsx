@@ -8,24 +8,28 @@ import ScrollTrigger from 'gsap/ScrollTrigger';
 export default function OriginalFeatures() {
   const orignialFeatures = [
     {
+      direction: 'left',
       title: '推敲指示/回覧機能',
       lead: '成果物の修正は､コメントで簡単に｡<br />関係者への回覧や､指摘の受付もAIがサポート｡',
       description:
         '「パブテクAI行政」では、修正したい部分にコメントするだけで、AIが指摘を受けた推敲案を提示。関係者や上司と直接回覧でき、受け取った側もコメントや修正依頼が可能。AIが即座に修正案を示し、適用後の文書を確認できるため、スムーズに成果物を完成できます。',
     },
     {
+      direction: 'right',
       title: '自治体間共有機能',
       lead: '自治体の垣根を越える情報共有',
       description:
         '「パブテクAI行政」は、自治体の政策課題や対応事例をデータベース化。遠く離れた自治体の類似事例を参照したり、当時の担当者にコンタクトを取ることが可能に。AIに作業を依頼するだけで、過去の事例を活用し、迅速な意思決定を支援します。<br />また、情報共有は承認制で管理され、機密情報の保護や適切なアクセス制御が徹底されています。',
     },
     {
+      direction: 'left',
       title: 'データベース機能',
       lead: '庁内で誰が何に取り組んでいるのか<br />瞬時に把握できるAI秘書',
       description:
         '「パブテクAI行政」は、利用状況とアカウントを紐づけ、庁内の業務進捗や担当者情報を可視化。誰がどのプロジェクトを担当し、進捗状況がどうなっているかを即座に把握できます。幹部はこのデータを活用し、適切に指示を出し、リソースを最適配分。迅速な意思決定を支援します。',
     },
     {
+      direction: 'right',
       title: '問い合わせ対応の効率化機能',
       lead: '優先順位をつけながら、AI支援で問い合わせ対応工数を大幅削減',
       description:
@@ -122,7 +126,7 @@ export default function OriginalFeatures() {
               className='js-features-panel group relative px-20 py-17.5 h-screen grid place-items-center overflow-hidden'
             >
               <div className='bg-black-base rounded-2xl grid place-items-center w-full h-full max-h-152.75 px-8'>
-                <div className='flex gap-x-[1.8125rem] w-full group-odd:flex-row-reverse'>
+                <div className={`flex gap-x-[1.8125rem] w-full ${feature.direction === 'right' ? 'flex-row-reverse' : ''}`}>
                   <div className='relative w-[calc(609/1052*100%)]'>
                     <Image
                       src={`/images/new-feature-${(index + 1)
