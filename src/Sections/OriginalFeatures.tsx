@@ -48,7 +48,7 @@ export default function OriginalFeatures() {
       if (index < panels.length - 1) {
         ScrollTrigger.create({
           trigger: panel,
-          start: `top ${index * 10}px`,
+          start: `top ${index * 8}px`,
           endTrigger: container,
           end: 'bottom bottom',
           pin: true,
