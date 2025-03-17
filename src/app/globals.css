@@ -19,3 +19,12 @@ body {
   font-family: "hiragino-kaku-gothic-pron", sans-serif;
   color: var(--color-black-base);
 }
+
+summary {
+	cursor: pointer;
+	list-style: none;
+}
+
+summary::-webkit-details-marker {
+	display: none;
+}

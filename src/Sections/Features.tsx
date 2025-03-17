@@ -5,8 +5,8 @@ import Image from 'next/image';
 import Cross from '@/components/icons/Cross';
 import Success from '@/components/icons/Success';
 
-import Personalized from './features/Personalized';
-import Security from './features/Security';
+import Personalized from '@/sections/features/Personalized';
+import Security from '@/sections/features/Security';
 
 export default function Features() {
   const features = {
