@@ -1,9 +1,18 @@
 'use client';
 import Link from 'next/link';
 
+import BackToTop from '@/components/icons/BackToTop';
+
 export default function Footer() {
   return (
-    <footer>
+    <footer className='relative'>
+      <div className="absolute -top-8 left-0 w-full px-20 -translate-y-full">
+        <div className="max-w-280 mx-auto flex justify-end">
+          <a href="#" className="relative transition-transform ease-in-out duration-300 lg:hover:-translate-y-1">
+            <BackToTop className='w-8' />
+          </a>
+        </div>
+      </div>
       <div className='bg-pubtech-blue py-15'>
         <h2 className='text-40/[1.4] font-semibold text-white text-center'>
           自治体業務の効率化を、AIで一歩先へ。
