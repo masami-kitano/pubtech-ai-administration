@@ -22,8 +22,8 @@ export default function Kv() {
             </p>
           </div>
         </div>
-        <div className='absolute top-0 left-1/2 w-[94.5rem] h-full -translate-x-1/2'>
-          <div className='absolute top-0 right-0 flex items-center h-full'>
+        <div className='absolute top-0 left-1/2 h-full w-full -translate-x-1/2 xl:w-[94.5rem]'>
+          <div className='absolute top-0 left-119.75 flex items-center h-full xl:left-auto xl:right-9.5'>
             <div className='relative w-[49.98875rem] aspect-[799.82/576]'>
               <Image
                 src='/images/kv.png'
