@@ -1,12 +1,12 @@
 import Header from "@/components/Header";
-import Kv from "@/Sections/Kv";
-import Introduction from "@/Sections/Introduction";
-import Solution from "@/Sections/Solution";
-import ExperienceDifference from "@/Sections/ExperienceDifference";
-import Features from "@/Sections/Features";
-import OriginalFeatures from "@/Sections/OriginalFeatures";
-import Comparison from "@/Sections/Comparison";
-import Faq from "@/Sections/Faq";
+import Kv from "@/sections/Kv";
+import Introduction from "@/sections/Introduction";
+import Solution from "@/sections/Solution";
+import ExperienceDifference from "@/sections/ExperienceDifference";
+import Features from "@/sections/Features";
+import OriginalFeatures from "@/sections/OriginalFeatures";
+import Comparison from "@/sections/Comparison";
+import Faq from "@/sections/Faq";
 import Footer from "@/components/Footer";
 export default function Home() {
   return (

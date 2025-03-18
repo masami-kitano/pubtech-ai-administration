@@ -61,8 +61,8 @@ export default function ExperienceDifference() {
             </li>
           ))}
         </ul>
-        <div className='mt-25'>
-          <h2 className='text-64/[1.4] font-semibold text-white text-center'>
+        <div className='mt-25 overflow-hidden'>
+          <h2 className='text-64/[1.4] font-semibold text-white text-center whitespace-nowrap'>
             この違い、体験してみませんか
           </h2>
           <div className='mt-6 flex justify-center'>

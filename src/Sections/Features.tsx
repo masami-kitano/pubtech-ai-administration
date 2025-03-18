@@ -5,8 +5,8 @@ import Image from 'next/image';
 import Cross from '@/components/icons/Cross';
 import Success from '@/components/icons/Success';
 
-import Personalized from '@/Sections/features/Personalized';
-import Security from '@/Sections/features/Security';
+import Personalized from '@/sections/features/Personalized';
+import Security from '@/sections/features/Security';
 
 export default function Features() {
   const features = {
@@ -55,13 +55,13 @@ export default function Features() {
                 <div className="relative">
                   <h3 className="text-16/[1.7] font-semibold">既存の生成AI</h3>
                   <div className="mt-2">
-                    <Image src="/images/features-existing-ai.png" alt="既存の生成AI" width={280.75} height={429} />
+                    <Image src="/images/features-existing-ai.svg" alt="既存の生成AI" width={280.75} height={429} />
                   </div>
                 </div>
                 <div className="relative">
                   <h3 className="text-16/[1.7] font-semibold text-pubtech-blue">パブテクAI財政</h3>
                   <div className="mt-2">
-                    <Image src="/images/features-pubtech-ai.png" alt="パブテクAI財政" width={280.75} height={429} />
+                    <Image src="/images/features-pubtech-ai.svg" alt="パブテクAI財政" width={280.75} height={429} />
                   </div>
                 </div>
               </div>
