@@ -78,7 +78,7 @@ export default function FaqItem({ question, answer, index, onToggle }: FaqItemPr
       >
         <summary
           ref={summaryRef}
-          className='flex items-center justify-between gap-x-7.5 cursor-pointer list-none pt-8 pb-6'
+          className='flex items-center justify-between gap-x-7.5 cursor-pointer list-none pt-8 pb-6 transition-colors duration-300 ease-in-out lg:hover:text-pubtech-blue'
         >
           <div className='text-20/[1.4] font-semibold'>{question}</div>
           <div className='relative w-7 h-7'>
