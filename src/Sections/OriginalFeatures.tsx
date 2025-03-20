@@ -96,18 +96,18 @@ export default function OriginalFeatures() {
       <div className="relative px-20">
         <div className="absolute inset-0">
           <div className="sticky top-0 w-full h-screen grid place-items-center overflow-hidden">
-            <div className="w-[131.5%] h-full max-h-114.5 bg-[#88B0FD] rounded-[50%] blur-[99px]"></div>
+            <div className="w-[131.5%] h-full max-h-[60%] bg-[#88B0FD] rounded-[50%] blur-[99px]"></div>
           </div>
         </div>
-        <div className='js-features-container max-w-320 mx-auto'>
+        <div className='js-features-container max-w-280 mx-auto'>
           <div 
             ref={el => {
               if (el) panelsRef.current[0] = el;
             }}
-            className='js-features-panel relative px-20 py-17.5 h-screen grid place-items-center overflow-hidden'
+            className='js-features-panel relative py-17.5 h-screen grid place-items-center overflow-hidden'
           >
-            <div className='bg-black-base rounded-2xl grid place-items-center w-full h-full max-h-152.75 overflow-hidden'>
-              <h2 className='text-64/[1.4] font-semibold text-white text-center'>
+            <div className='bg-black-base rounded-2xl grid place-items-center w-full h-full max-h-[70vh] overflow-hidden'>
+              <h2 className='text-[min(calc(64/1280*100vw),4rem)]/[1.4] font-semibold text-white text-center'>
                 パブテクAI行政だからできる
                 <br />
                 <span className='bg-gradient-to-r from-[#3A78F1] via-[#47D9E2] to-[#64ED80] inline-block text-transparent bg-clip-text'>
@@ -123,9 +123,9 @@ export default function OriginalFeatures() {
               ref={el => {
                 if (el) panelsRef.current[index + 1] = el;
               }}
-              className='js-features-panel group relative px-20 py-17.5 h-screen grid place-items-center overflow-hidden'
+              className='js-features-panel group relative py-17.5 h-screen grid place-items-center overflow-hidden'
             >
-              <div className='bg-black-base rounded-2xl grid place-items-center w-full h-full max-h-152.75 px-8'>
+              <div className='bg-black-base rounded-2xl grid place-items-center w-full h-full max-h-[70vh] px-8'>
                 <div className={`flex gap-x-[1.8125rem] w-full ${feature.direction === 'right' ? 'flex-row-reverse' : ''}`}>
                   <div className='relative w-[calc(609/1052*100%)]'>
                     <Image

@@ -1,8 +1,48 @@
 'use client';
 
-import Image from 'next/image';
+import { useEffect, useRef } from 'react';
+import gsap from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
 export default function Kv() {
+  const containerRef = useRef<HTMLDivElement>(null);
+  const box1Ref = useRef<HTMLDivElement>(null);
+  const box2Ref = useRef<HTMLDivElement>(null);
+  const box3Ref = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    gsap.registerPlugin(ScrollTrigger);
+    
+    const boxes = [
+      { ref: box1Ref, speed: 0.3 },
+      { ref: box2Ref, speed: 0.5 },
+      { ref: box3Ref, speed: 0.7 },
+    ];
+
+    boxes.forEach(({ ref, speed }) => {
+      gsap.fromTo(ref.current,
+        {
+          y: 0
+        },
+        {
+          y: `${speed * 300}px`,
+          ease: 'none',
+          scrollTrigger: {
+            trigger: containerRef.current,
+            start: 'top top',
+            end: 'bottom top',
+            scrub: 1,
+            markers: false,
+          },
+        }
+      );
+    });
+
+    return () => {
+      ScrollTrigger.getAll().forEach(trigger => trigger.kill());
+    };
+  }, []);
+
   return (
     <section className='relative overflow-hidden px-20'>
       <div className='relative'>
@@ -23,14 +63,11 @@ export default function Kv() {
           </div>
         </div>
         <div className='absolute top-0 left-1/2 h-full w-full -translate-x-1/2 xl:w-[94.5rem] pointer-events-none'>
-          <div className='absolute top-0 left-119.75 flex items-center h-full xl:left-auto xl:right-9.5'>
+          <div ref={containerRef} className='absolute top-0 left-119.75 flex items-center h-full xl:left-auto xl:right-9.5'>
             <div className='relative w-[49.98875rem] aspect-[799.82/576]'>
-              <Image
-                src='/images/kv.png'
-                alt='kv-bg'
-                width={799.82}
-                height={576}
-              />
+              <div ref={box1Ref} className="absolute top-[calc(47/576*100%)] left-0 w-[calc(510.08/799.82*100%)] aspect-[510.08/363.52] shadow-[0_1.5625rem_1.5625rem_0_rgba(0,0,0,0.15)] rounded-2xl bg-white"></div>
+              <div ref={box2Ref} className="absolute bottom-0 left-[calc(70.2/799.82*100%)] w-[calc(527.6/799.82*100%)] aspect-[527.6/376] shadow-[0_1.5625rem_1.5625rem_0_rgba(0,0,0,0.15)] rounded-2xl bg-white"></div>
+              <div ref={box3Ref} className="absolute top-0 right-0 w-[calc(635.64/799.82*100%)] aspect-[635.64/453] shadow-[0_1.5625rem_1.5625rem_0_rgba(0,0,0,0.15)] rounded-2xl bg-white"></div>
             </div>
           </div>
         </div>

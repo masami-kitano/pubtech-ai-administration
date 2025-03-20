@@ -58,15 +58,17 @@ export default function Solution() {
     <section id='solution' className='relative mt-20 pt-25'>
       <div className="relative">
         <div className='absolute top-23.25 left-0 w-full h-[103%] bg-[#F6F6F6] -skew-y-10' />
-        <div className='relative max-w-320 mx-auto'>
+        <div className="relative max-w-320 mx-auto">
           <h2 className='relative font-semibold text-64/[1.4] text-center'>
             そんなお悩み
             <br />
             <span className='text-pubtech-blue'>「パブテクAI行政」</span>
             が解決します
           </h2>
-          <div className='grid grid-cols-[33rem_1fr] gap-x-32 mt-25 pr-20'>
-            <div className='relative rounded-2xl bg-white shadow-[0_1.5625rem_1.5625rem_0_rgba(0,0,0,0.15)]'></div>
+        </div>
+        <div className='relative max-w-[calc((100%-80rem)/2+80rem)] mr-auto'>
+          <div className='grid grid-cols-[33rem_1fr] gap-x-32 mt-25 pr-20 xl:grid-cols-[1fr_34rem]'>
+            <div className='relative rounded-r-2xl bg-white shadow-[0_1.5625rem_1.5625rem_0_rgba(0,0,0,0.15)]'></div>
             <ul className=' grid grid-cols-1 gap-12 pt-8 pb-13'>
               {solutionItems.map((item, index) => (
                 <li key={index}>
